@@ -36,9 +36,9 @@ class ProductController extends Controller
         $lastPage = ceil($total / $limit);
         return response()->json([
             'data' => $result,
-            'limit' => $limit,
-            'total' => $total,
-            'page' => $page,
+            'limit' => ceil($limit),
+            'total' => ceil($total),
+            'page'  => ceil($page),
             'last_page' => $lastPage
         ], 200);
     }
