@@ -34,6 +34,8 @@ class ProductController extends Controller
         $result = $query->offset(($page - 1) * $limit)->limit($limit)->get();
         $lastPage = ceil($total / $limit);
         return response()->json([
+            'api_status' => 200,
+            'message' => 'Success get data',
             'data' => $result,
             'limit' => ceil($limit),
             'total' => ceil($total),
