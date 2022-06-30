@@ -4,7 +4,6 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -45,11 +44,11 @@ class ProductController extends Controller
 
     public function getDetail($id)
     {
-        $products = Product::find($id);
+        $product = Product::find($id);
         return response()->json([
             'api_status' => 200,
             'message' => 'Successfully get detail products',
-            'data' => $products
+            'data' => $product
         ], 200);
     }
 
@@ -84,8 +83,8 @@ class ProductController extends Controller
 
     public function update(Request $request, $id)
     {
-        $product = Product::findOrFail($id);
 
+        $product = Product::findOrFail($id);
         $product->update([
             'title' => $request->title,
             'description' => $request->description,
